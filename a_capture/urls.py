@@ -6,6 +6,5 @@ router = DefaultRouter()
 router.register('frame', views.CapturedFrameViewset)
 
 urlpatterns = [
-    path('', include(router.urls))
+    path('', include(router.urls)),
 ]
-
