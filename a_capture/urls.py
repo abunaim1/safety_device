@@ -1,6 +1,11 @@
-from django.urls import path
+from rest_framework.routers import DefaultRouter
+from django.urls import path, include
 from . import views
 
+router = DefaultRouter()
+router.register('frame', views.CapturedFrameViewset)
+
 urlpatterns = [
-    path('upload/', views.upload_frame, name='upload_frame'),
+    path('', include(router.urls))
 ]
+
