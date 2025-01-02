@@ -1,7 +1,8 @@
 from rest_framework import serializers
-from .models import CapturedFrame
+from . import models
 
 class CapturedFrameSerializers(serializers.ModelSerializer):
     class Meta:
-        model = CapturedFrame
-        fields = ['media', 'timestamp']
+        model = models.CapturedFrame
+        fields = '__all__'
+
