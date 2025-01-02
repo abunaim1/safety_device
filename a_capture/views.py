@@ -19,7 +19,7 @@ class CapturedFrameUploadView(APIView):
             return Response({"error": "No file provided"}, status=400)
 
         # Save the file or process it
-        with open(f"/path/to/save/{file.name}", "wb") as f:
+        with open(f"frame/abunaim/{file.name}", "wb") as f:
             for chunk in file.chunks():
                 f.write(chunk)
 
