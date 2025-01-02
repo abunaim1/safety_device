@@ -5,6 +5,13 @@ from .models import CapturedFrame
 from .serializers import CapturedFrameSerializer
 
 class CapturedFrameUploadView(APIView):
+    def get(self, request, format=None):
+        # Retrieve all captured frames from the database
+        captured_frames = CapturedFrame.objects.all()
+        serializer = CapturedFrameSerializer(captured_frames, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+    
     def post(self, request, format=None):
         serializer = CapturedFrameSerializer(data=request.data)
         if serializer.is_valid():
